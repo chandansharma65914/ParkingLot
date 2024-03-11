@@ -17,23 +17,28 @@ This Java project implements a car parking system that can accommodate different
 ## Usage
 1. Initialize the parking lot with the ParkingLot constructor, specifying the total number of floors and car spaces per floor.
 
-![image](https://github.com/chandansharma65914/ParkingLot/assets/109021997/3a40e62e-2119-4fdc-bb0a-ea9519127b98)
+![abc1](https://github.com/chandansharma65914/ParkingLot/assets/109021997/bd1008f4-5083-4265-a123-a61c8ed2534e)
+
 
 2. Use the "addVehicle" method to add vehicle to the parking lot.
 
-![image](https://github.com/chandansharma65914/ParkingLot/assets/109021997/87141705-e31d-4f30-8198-2702b1a5b427)
+![abc3](https://github.com/chandansharma65914/ParkingLot/assets/109021997/459c7384-9a56-469a-8314-a60bb62aa4c7)
+
 
 3. Use the "removeVehicle" method to remove a vehicle from the parking lot.
 
-![image](https://github.com/chandansharma65914/ParkingLot/assets/109021997/ae453f88-1f4b-4fd4-926a-a05f076852ec)
+![abc4](https://github.com/chandansharma65914/ParkingLot/assets/109021997/528bb0f1-061f-481c-b6bc-f3a54b6d48fc)
+
 
 4. Use the "checkAvailability" method to check the availability of vehicle spaces on a specific floor for a given vehicle type.
 
-![image](https://github.com/chandansharma65914/ParkingLot/assets/109021997/96e708c0-7b76-4572-895d-c3fc22858b9e)
+![abc2](https://github.com/chandansharma65914/ParkingLot/assets/109021997/c06dd13b-63f4-43cd-ae2d-04cd635729eb)
+
 
 5. Use the "calculateCost" method to find the cost.
 
-![image](https://github.com/chandansharma65914/ParkingLot/assets/109021997/4a699ee7-1296-48a3-94d8-b137ae022e91)
+![abc5](https://github.com/chandansharma65914/ParkingLot/assets/109021997/d7c9e31a-e2f8-41f1-9765-d074f63db5e3)
+
 
 
 
