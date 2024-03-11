@@ -13,6 +13,13 @@ This Java project implements a car parking system that can accommodate different
 - Check the availability of vehicle spaces on a specific floor for a given vehicle type.
 
 
+## Getting Started
+
+1. Clone the repository using the command:
+   https://github.com/chandansharma65914/ParkingLot
+
+2. Compile and run the Java application to launch the console-based parkingLot System.
+   
 
 ## Usage
 1. Initialize the parking lot with the ParkingLot constructor, specifying the total number of floors and car spaces per floor.
@@ -48,6 +55,18 @@ The cost strategy is implemented as a flat cost structure based on the vehicle t
 
 
 
-## 🔗 Links
+## 🔗 Video Link
+https://drive.google.com/file/d/1lJ6BEAzDpG2Y7ptJpRGD_EL6T1xy8e6Z/view?usp=sharing
+
+
+##  Contributions
+
+We welcome contributions! Feel free to fork the repository, enhance functionalities, and submit pull requests.
+
+
+
+For any inquiries or feedback, contact us at chandansharma65914@gmail.com .
+
+
 
 
