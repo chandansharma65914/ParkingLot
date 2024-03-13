@@ -23,11 +23,11 @@ public class Main {
 		initializeParkingLot(sc);
 
 		while (true) {
-			System.out.println("<****************************************->");
+			System.out.println("<******************************************************************->");
 			System.out.println("Please select an option:");
-			System.out.println("1. Add vehicle");
-			System.out.println("2. Remove vehicle");
-			System.out.println("3. Check availability");
+			System.out.println("1. Check availability ");
+			System.out.println("2. Add vehicle");
+			System.out.println("3. Remove Vehicle");
 			System.out.println("4. Exit");
 			System.out.print("Enter your choice: ");
 
@@ -36,13 +36,15 @@ public class Main {
 
 			switch (choice) {
 			case 1:
-				addVehicle(sc);
+				checkAvailability(sc);
+
 				break;
 			case 2:
-				removeVehicle(sc);
+
+				addVehicle(sc);
 				break;
 			case 3:
-				checkAvailability(sc);
+				removeVehicle(sc);
 				break;
 			case 4:
 				System.out.println("Thank you for using the Parking Lot System!");
@@ -57,21 +59,21 @@ public class Main {
 	private static void initializeParkingLot(Scanner sc) {
 		System.out.print("Enter the number of floors: ");
 		int totalFloors = sc.nextInt();
-		System.out.print("Enter the number of spaces per floor: ");
+		System.out.print("Enter the number of spaces per floor Per VehicleType: ");
 		int capacityPerFloor = sc.nextInt();
 		parkingService = new ParkingServiceImp(totalFloors, capacityPerFloor);
-		System.out.println("<****************************************->");
+		System.out.println("<******************************************************************->");
 		System.out.println("Parking lot initialized with " + totalFloors + " floors and " + capacityPerFloor
 				+ " spaces per floor.");
-
 		System.out.println();
 	}
 
 	private static void addVehicle(Scanner scanner) {
+		System.out.println("<******************************************************************->");
 		try {
 			System.out.print("Enter the vehicle registration number: ");
 			String registrationNumber = scanner.nextLine();
-			System.out.print("Enter the vehicle type in UpperCase(CAR, BUS, TRUCK, BIKE): ");
+			System.out.print("Enter the vehicle (CAR, BUS, TRUCK, BIKE): ");
 			String input = scanner.nextLine().toUpperCase();
 
 			// Validate vehicle type
@@ -93,8 +95,8 @@ public class Main {
 
 			System.out.println("Vehicle added successfully.");
 		} catch (Exception e) {
-			System.out.println("An error occurred while adding the vehicle.");
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			// e.printStackTrace();
 		}
 	}
 
@@ -108,8 +110,9 @@ public class Main {
 	}
 
 	private static void checkAvailability(Scanner scanner) {
+		System.out.println("<******************************************************************->");
 		try {
-			System.out.print("Enter the vehicle type in UpperCase(CAR, BUS, TRUCK, BIKE): ");
+			System.out.print("Enter the vehicle type (CAR, BUS, TRUCK, BIKE): ");
 			String input = scanner.nextLine().toUpperCase();
 
 			// Validate vehicle type
@@ -129,16 +132,17 @@ public class Main {
 	}
 
 	private static void removeVehicle(Scanner sc) {
-
+		System.out.println("<******************************************************************->");
 		System.out.print("Enter the token Number: ");
 		int tokenNumber = sc.nextInt();
 
 		try {
 			ParkedVehicle parkedVehicle = parkingService.getParkedVehicleDetail(tokenNumber);
 			parkingService.removeVehicle(parkedVehicle);
-
+			System.out.println("<******************************************************************->");
 			System.out.println("The cost of parking of your vehicle is :-> " + parkingService.checkCost(parkedVehicle)
 					+ " rupees");
+			System.out.println("<******************************************************************->");
 
 		} catch (WrongDetailException e) {
 			System.out.println(e.getMessage());

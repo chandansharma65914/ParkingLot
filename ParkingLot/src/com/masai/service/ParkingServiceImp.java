@@ -28,7 +28,7 @@ public class ParkingServiceImp implements ParkingService {
 	}
 
 	@Override
-	public String parkVehicle(int floorNumber, int spaceNumber, Vehicle vehicle) {
+	public String parkVehicle(int floorNumber, int spaceNumber, Vehicle vehicle) throws WrongDetailException, NoSpaceAvailableException {
 		Map<Integer, Floor> floors = parkingLot.getFloors();
 
 		if (floors.containsKey(floorNumber)) {
@@ -45,17 +45,20 @@ public class ParkingServiceImp implements ParkingService {
 					parkingLot.setFloors(floors);
 					int size = parkedVehicles.size() + 1;
 					parkedVehicles.put(size, new ParkedVehicle(size, floorNumber, spaceNumber, vehicle));
-					System.out.println("Your TokenNumber is " + size + "Please NoteDown");
-					return "Vehicle Parked At floorNumber :" + floorNumber + "spaceNumber :" + spaceNumber;
+					System.out.println("<******************************************************************->");
+					System.out.println("Your TokenNumber is " + size );
+					System.out.println("Vehicle Parked At floorNumber :" + floorNumber  );
+					System.out.println("Vehicle Parked At spaceNumber :" + spaceNumber  );
+					return "Parked Sucessfully";
 
 				} else {
-					return "space is not available for this vehicle Type";
+					throw new NoSpaceAvailableException("No space Available for this VehiclType , Please check Availibility");
 				}
 			} else {
-				return "wrong space Number is written. Please checkAvailability";
+				throw new WrongDetailException("Invalid Space Number , Please check Availibility");
 			}
 		} else {
-			return "wrong floor number entered";
+			throw new WrongDetailException("Invalid Floor Number , Please check Availibility");
 		}
 	}
 
