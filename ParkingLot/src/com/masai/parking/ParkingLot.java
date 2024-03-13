@@ -11,53 +11,44 @@ import com.masai.vehicle.VehicleType;
 public class ParkingLot {
 
 	private int totalFloors;
-	private int spacesPerFloor;
+	private int spacesPerFloorPerVehicle;
 	private Map<Integer, Floor> floors;
 
-	public ParkingLot(int totalFloors, int spacesPerFloor) {
+	public ParkingLot(int totalFloors, int spacesPerFloorPerVehicle) {
 		super();
 		this.totalFloors = totalFloors;
-		this.spacesPerFloor = spacesPerFloor;
+		this.spacesPerFloorPerVehicle = spacesPerFloorPerVehicle;
 		this.floors = new HashMap<>();
 		initializeFloors();
 	}
     private void initializeFloors() {
     	for (int i = 1; i <= totalFloors; i++) {
             Map<VehicleType, Integer> capacity = new HashMap<>();
-            capacity.put(VehicleType.CAR, spacesPerFloor);
-            capacity.put(VehicleType.BIKE, spacesPerFloor);
-            capacity.put(VehicleType.TRUCK, spacesPerFloor);
-            capacity.put(VehicleType.BUS, spacesPerFloor);
+            capacity.put(VehicleType.CAR, spacesPerFloorPerVehicle);
+            capacity.put(VehicleType.BIKE, spacesPerFloorPerVehicle);
+            capacity.put(VehicleType.TRUCK, spacesPerFloorPerVehicle);
+            capacity.put(VehicleType.BUS, spacesPerFloorPerVehicle);
             floors.put(i, new Floor(i, capacity));
         }
     }
-    public boolean isFull(VehicleType type) {
-        return floors.values().stream().allMatch(floor -> floor.isFull(type));
-    }
+	public int getTotalFloors() {
+		return totalFloors;
+	}
+	public void setTotalFloors(int totalFloors) {
+		this.totalFloors = totalFloors;
+	}
+	public int getSpacesPerFloorPerVehicle() {
+		return spacesPerFloorPerVehicle;
+	}
+	public void setSpacesPerFloorPerVehicle(int spacesPerFloorPerVehicle) {
+		this.spacesPerFloorPerVehicle = spacesPerFloorPerVehicle;
+	}
+	public Map<Integer, Floor> getFloors() {
+		return floors;
+	}
+	public void setFloors(Map<Integer, Floor> floors) {
+		this.floors = floors;
+	}
     
-    public boolean addVehicle(Vehicle vehicle) {
-    	for (Floor floor : floors.values()) {
-            if (!floor.isFull(vehicle.getType())) {
-                VehicleSpace space = floor.parkVehicle(vehicle.getType());
-                if (space != null) {
-                    System.out.println("Vehicle parked at space number: " + space.getSpaceNumber());
-                    return true;
-                }
-            }
-        }
-        System.out.println("Parking lot is full for " + vehicle.getType() + ".");
-        return false;
-    }
-    
-    public void removeVehicle(VehicleType type, int spaceNumber) {
-        floors.values().forEach(floor -> {
-            if (floor.getAvailableSpaces(type) < spacesPerFloor) {
-                floor.removeVehicle(spaceNumber);
-            }
-        });
-    }
-    
-    public int calculateCost(VehicleType type, int hours) {
-        return CostStrategy.getCost(type) * hours;
-    }
+
 }

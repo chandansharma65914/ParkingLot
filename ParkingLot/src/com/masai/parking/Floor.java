@@ -7,11 +7,11 @@ import com.masai.vehicle.VehicleSpace;
 import com.masai.vehicle.VehicleType;
 
 public class Floor {
-   
+
 	private int floorNumber;
-	
-	private Map<VehicleType,Integer> capacity;
-	
+
+	private Map<VehicleType, Integer> capacity;
+
 	private Map<Integer, VehicleSpace> spaces;
 
 	public Floor(int floorNumber, Map<VehicleType, Integer> capacity) {
@@ -21,47 +21,48 @@ public class Floor {
 		this.spaces = new HashMap<>();
 		initializeSpaces();
 	}
+	
+
 	private void initializeSpaces() {
-		
+
 		for (Map.Entry<VehicleType, Integer> entry : capacity.entrySet()) {
-            VehicleType type = entry.getKey();
-            int spaceCount = entry.getValue();
-            for (int i = 1; i <= spaceCount; i++) {
-                spaces.put(i, new VehicleSpace(i, type));
-            }
-        }
+			VehicleType type = entry.getKey();
+			int spaceCount = entry.getValue();
+			for (int i = 1; i <= spaceCount; i++) {
+				spaces.put(i, new VehicleSpace(floorNumber,i,type));
+			}
+		}
 	}
+
+
 	public int getFloorNumber() {
 		return floorNumber;
 	}
-	
-	public boolean isFull(VehicleType type) {
-		 return spaces.values().stream()
-	                .filter(space -> space.getType() == type)
-	                .noneMatch(VehicleSpace::isAvailable);
+
+
+	public void setFloorNumber(int floorNumber) {
+		this.floorNumber = floorNumber;
 	}
-	
-	public int getAvailableSpaces(VehicleType type) {
-		 return (int) spaces.values().stream()
-	                .filter(space -> space.getType() == type && space.isAvailable())
-	                .count();
+
+
+	public Map<VehicleType, Integer> getCapacity() {
+		return capacity;
 	}
-	
-	public VehicleSpace parkVehicle(VehicleType type) {
-		for (VehicleSpace space : spaces.values()) {
-            if (space.getType() == type && space.isAvailable()) {
-                space.setAvailable(false);
-                return space;
-            }
-        }
-        return null;
+
+
+	public void setCapacity(Map<VehicleType, Integer> capacity) {
+		this.capacity = capacity;
 	}
-	
-	public void removeVehicle(int spaceNumber) {
-		VehicleSpace space = spaces.get(spaceNumber);
-        if (space != null) {
-            space.setAvailable(true);
-            
-        }
+
+
+	public Map<Integer, VehicleSpace> getSpaces() {
+		return spaces;
 	}
+
+
+	public void setSpaces(Map<Integer, VehicleSpace> spaces) {
+		this.spaces = spaces;
+	}
+   
+
 }
