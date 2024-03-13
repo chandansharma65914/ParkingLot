@@ -9,9 +9,10 @@ This Java project implements a car parking system that can accommodate different
 ## Features
 
 - Initialize the parking lot with a given number of floors and car spaces per floor.
+- Check the availability of vehicle spaces on a specific floor for a given vehicle type.
 - Add vehicle details to the parking lot, including the vehicle type, registration number, and color.
 - Remove a vehicle from the parking lot based on the registration number or parking slot number.
-- Check the availability of vehicle spaces on a specific floor for a given vehicle type.
+
 
 ## Cost Strategy
 
@@ -41,7 +42,8 @@ The cost strategy is implemented as a flat cost structure based on the vehicle t
 
 3. Use the "addVehicle" method to add a vehicle to  the parking lot.
 
-![4](https://github.com/chandansharma65914/ParkingLot/assets/109021997/b507d37d-0c9f-4861-b8dc-27181ffc158e)
+![3](https://github.com/chandansharma65914/ParkingLot/assets/109021997/ad2fe668-b96f-4144-8eb6-e11f8f827738)
+
 
 4. Use the "removeVehicle" method to remove a vehicle from the parking lot.
 
