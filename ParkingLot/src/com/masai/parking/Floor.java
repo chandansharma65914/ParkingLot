@@ -28,8 +28,9 @@ public class Floor {
 		for (Map.Entry<VehicleType, Integer> entry : capacity.entrySet()) {
 			VehicleType type = entry.getKey();
 			int spaceCount = entry.getValue();
+			int key= spaces.size()+1;
 			for (int i = 1; i <= spaceCount; i++) {
-				spaces.put(i, new VehicleSpace(floorNumber,i,type));
+				spaces.put(key, new VehicleSpace(floorNumber,key,type));
 			}
 		}
 	}

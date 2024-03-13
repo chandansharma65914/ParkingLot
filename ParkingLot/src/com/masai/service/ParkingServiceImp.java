@@ -45,7 +45,7 @@ public class ParkingServiceImp implements ParkingService {
 					parkingLot.setFloors(floors);
 					int size = parkedVehicles.size() + 1;
 					parkedVehicles.put(size, new ParkedVehicle(size, floorNumber, spaceNumber, vehicle));
-					System.out.println("Your TokenNumber is "+size + "Please NoteDown");
+					System.out.println("Your TokenNumber is " + size + "Please NoteDown");
 					return "Vehicle Parked At floorNumber :" + floorNumber + "spaceNumber :" + spaceNumber;
 
 				} else {
@@ -84,8 +84,8 @@ public class ParkingServiceImp implements ParkingService {
 	public boolean checkAvailability(VehicleType type) throws NoSpaceAvailableException {
 
 		boolean flag = false;
-		
-	    boolean printOrNot = true;
+
+		boolean printOrNot = true;
 
 		Map<Integer, Floor> floors = parkingLot.getFloors();
 
@@ -94,22 +94,28 @@ public class ParkingServiceImp implements ParkingService {
 
 			for (var space : vehicleSpace.values()) {
 				if (space.getType() == type) {
-					flag = true;
-					if(flag && printOrNot) {
-						System.out.println("All available space for Vehicle :"+ type );
-						
-						System.out.println("Please notedown floorNumber and spaceNumber");
-					}
-					System.out.println("****************************************");
-					System.out.println("Floor Number " + floor.getFloorNumber());
 
-					System.out.println("Space Number " + space.getSpaceNumber());
-					System.out.println("****************************************");
+					if (space.isAvailable()) {
+						flag = true;
+						if (flag && printOrNot) {
+							System.out.println("All available space for Vehicle :" + type);
+
+							System.out.println("Please notedown floorNumber and spaceNumber");
+							printOrNot = false;
+						}
+						System.out.println("****************************************");
+						System.out.println("Floor Number " + floor.getFloorNumber());
+
+						System.out.println("Space Number " + space.getSpaceNumber());
+						System.out.println("****************************************");
+
+					}
+
 				}
 			}
 		}
 		if (!flag) {
-			throw new NoSpaceAvailableException("There is no space available for vehicle "+type);
+			throw new NoSpaceAvailableException("There is no space available for vehicle " + type);
 		}
 		return flag;
 	}
@@ -122,7 +128,7 @@ public class ParkingServiceImp implements ParkingService {
 		long totalHours = duration.toHours();
 		long remainingMinutes = duration.minusHours(totalHours).toMinutes();
 		// Round up to the next hour if there are remaining minutes
-		if (remainingMinutes > 0) {
+		if (remainingMinutes >= 0) {
 			totalHours++;
 		}
 
@@ -132,8 +138,8 @@ public class ParkingServiceImp implements ParkingService {
 
 	@Override
 	public void initializeParking(int totalFloor, int spacePerFloorPerVehicle) {
-		parkingLot= new ParkingLot(totalFloor,spacePerFloorPerVehicle );
-		
+		parkingLot = new ParkingLot(totalFloor, spacePerFloorPerVehicle);
+
 	}
 
 	public Map<Integer, ParkedVehicle> getParkedVehicles() {
@@ -145,13 +151,12 @@ public class ParkingServiceImp implements ParkingService {
 	}
 
 	@Override
-	public ParkedVehicle getParkedVehicleDetail(int tokenId) throws WrongDetailException  {
-		if(!parkedVehicles.containsKey(tokenId)) {
+	public ParkedVehicle getParkedVehicleDetail(int tokenId) throws WrongDetailException {
+		if (!parkedVehicles.containsKey(tokenId)) {
 			throw new WrongDetailException("please enter valid enput");
 		}
-		
+
 		return parkedVehicles.get(tokenId);
 	}
-	
 
 }
