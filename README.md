@@ -1,5 +1,6 @@
 
-![Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ46MnEXnojd6vgJYkscC3sr2tlekFunRkudw04QZS3OQ&s)
+![homeLogo](https://github.com/chandansharma65914/ParkingLot/assets/109021997/b40c9e7f-65f4-4a53-9400-eb84cba4018c)
+
 # ParkingLot System
 
 This Java project implements a car parking system that can accommodate different types of vehicles and supports a configurable cost strategy. It allows you to initialize a parking lot with a given number of floors and car spaces per floor, add vehicle details, remove vehicles, and check the availability of vehicle spaces.
@@ -12,7 +13,12 @@ This Java project implements a car parking system that can accommodate different
 - Remove a vehicle from the parking lot based on the registration number or parking slot number.
 - Check the availability of vehicle spaces on a specific floor for a given vehicle type.
 
+## Cost Strategy
 
+The cost strategy is implemented as a flat cost structure based on the vehicle type per hour:
+- Bike per hour ₹ 10
+- Car / Jeep per hour ₹ 20
+- Bus / Truck per hour ₹ 30
 ## Getting Started
 
 1. Clone the repository using the command:
@@ -24,34 +30,33 @@ This Java project implements a car parking system that can accommodate different
 ## Usage
 1. Initialize the parking lot with the ParkingLot constructor, specifying the total number of floors and car spaces per floor.
 
-![abc1](https://github.com/chandansharma65914/ParkingLot/assets/109021997/bd1008f4-5083-4265-a123-a61c8ed2534e)
+![1](https://github.com/chandansharma65914/ParkingLot/assets/109021997/f3f37f4a-608a-4896-b0e4-4de39d2e726e)
 
+2. Use the "checkAvailability" method to check the availability of vehicle spaces on a specific floor for a given vehicle type.
 
-2. Use the "addVehicle" method to add vehicle to the parking lot.
-
-![abc3](https://github.com/chandansharma65914/ParkingLot/assets/109021997/459c7384-9a56-469a-8314-a60bb62aa4c7)
-
-
-3. Use the "removeVehicle" method to remove a vehicle from the parking lot.
-
-![abc4](https://github.com/chandansharma65914/ParkingLot/assets/109021997/528bb0f1-061f-481c-b6bc-f3a54b6d48fc)
-
-
-4. Use the "checkAvailability" method to check the availability of vehicle spaces on a specific floor for a given vehicle type.
-
-![abc2](https://github.com/chandansharma65914/ParkingLot/assets/109021997/c06dd13b-63f4-43cd-ae2d-04cd635729eb)
-
-
-5. Use the "calculateCost" method to find the cost.
-
-![abc5](https://github.com/chandansharma65914/ParkingLot/assets/109021997/d7c9e31a-e2f8-41f1-9765-d074f63db5e3)
+![2](https://github.com/chandansharma65914/ParkingLot/assets/109021997/7963e266-3e9f-46f3-99df-5fe74519bc08)
 
 
 
 
-## Cost Strategy
+3. Use the "addVehicle" method to add a vehicle to  the parking lot.
 
-The cost strategy is implemented as a flat cost structure based on the vehicle type per hour:
+![4](https://github.com/chandansharma65914/ParkingLot/assets/109021997/b507d37d-0c9f-4861-b8dc-27181ffc158e)
+
+4. Use the "removeVehicle" method to remove a vehicle from the parking lot.
+
+![4](https://github.com/chandansharma65914/ParkingLot/assets/109021997/b507d37d-0c9f-4861-b8dc-27181ffc158e)
+
+
+
+
+5. After that you can exist.
+
+![Yellow Illustrated Deer Twitter Header](https://github.com/chandansharma65914/ParkingLot/assets/109021997/e30896be-36d9-45e0-adec-2afcb9a9e801)
+
+
+
+
 
 
 
